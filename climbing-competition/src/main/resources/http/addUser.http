@@ -1,0 +1,43 @@
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "Mateusz",
+  "lastName": "Mazurek",
+  "phone": "668164072",
+  "mail": "maz@wp.pl"
+}
+###
+
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "Krysia",
+  "lastName": "Kazmierczak",
+  "phone": "111222333",
+  "mail": "kk@wp.pl"
+}
+###
+
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "Tomek",
+  "lastName": "buczek",
+  "phone": "222444666",
+  "mail": "buczu@wp.pl"
+}
+###
+
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "Pulka",
+  "lastName": "Mazurek2",
+  "phone": "886700401",
+  "mail": "pul@wp.pl"
+}
+###
