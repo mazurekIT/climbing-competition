@@ -1,11 +1,13 @@
 package mazurek.it.climbingcompetition.users;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import mazurek.it.climbingcompetition.addresses.Address;
+import mazurek.it.climbingcompetition.gender.Gender;
+import mazurek.it.climbingcompetition.roles.Role;
+import mazurek.it.climbingcompetition.walls.Wall;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -13,17 +15,25 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private int id;
     private String name;
     private String lastName;
     private String phone;
     private String mail;
-    private String password;
-//    private Gender gender;
-//    private Role role;
-//    private Address address;
-//    private Wall wall;
 
+    //ten atrybut nie będzie wyświetlany w JSONie
+    @JsonIgnore
+    private String password;
+    @Embedded
+    private Gender gender;
+    @JsonIgnore
+    @Embedded
+    private Role role;
+    @OneToOne
+    private Address address;
+    //poniższy obiekt będzie zawart w tablicy User nie będzie tworzona osobna tabela
+    @Embedded
+    private Wall wall;
 
 
 }

@@ -1,6 +1,8 @@
 package mazurek.it.climbingcompetition.gender;
 
-//@Entity
+import javax.persistence.Embeddable;
+
+@Embeddable
 public enum Gender {
-    MALE, FEMALE
+    MALE, FEMALE, OTHER
 }

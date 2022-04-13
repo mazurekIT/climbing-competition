@@ -1,6 +1,8 @@
 package mazurek.it.climbingcompetition.walls;
 
-//@Entity
+import javax.persistence.Embeddable;
+
+@Embeddable
 public enum Wall {
-    BLOK_LINE, KARMA, UNITED
+    BLOK_LINE, KARMA, UNITED;
 }
