@@ -9,7 +9,7 @@ import mazurek.it.climbingcompetition.walls.Wall;
 
 import javax.persistence.*;
 
-@Entity
+@Entity // These tells Hibernate to make a table out of this class
 @Data
 public class User {
 
