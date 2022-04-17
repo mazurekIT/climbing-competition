@@ -1,22 +1,34 @@
 package mazurek.it.climbingcompetition.users;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
 public class UserController {
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @GetMapping()
-    public List<User> getUsersByName(@RequestParam(value = "name",defaultValue = "Maz") String name) {
-        return userRepository.findUsersByLastName(name);
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
+
+    @GetMapping("/user")
+    public Iterable<User> getAll() {
+        return userRepository.findAll();
+    }
+
+    @GetMapping("/user/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+    }
+
+    @PostMapping("/user")
+    public User createUser(@RequestBody User user) {
+        return userRepository.save(user);
+    }
+
+    @PostMapping("/users")
+    public Iterable<User> createListUsers(@RequestBody Iterable<User> users) {
+        return userRepository.saveAll(users);
+    }
+
 
 }

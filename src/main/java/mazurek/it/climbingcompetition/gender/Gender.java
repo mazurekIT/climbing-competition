@@ -1,8 +1,19 @@
 package mazurek.it.climbingcompetition.gender;
 
-import javax.persistence.Embeddable;
-
-@Embeddable
 public enum Gender {
-    MALE, FEMALE, OTHER
+    MALE("K"), FEMALE("M"), OTHER("X"), JUNIOR("J");
+    private String code;
+
+    Gender(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
 }
