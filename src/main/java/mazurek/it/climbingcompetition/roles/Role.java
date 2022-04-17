@@ -1,8 +1,14 @@
 package mazurek.it.climbingcompetition.roles;
 
-import javax.persistence.Embeddable;
-
-@Embeddable
 public enum Role {
-    SUPER_ADMIN, ADMIN, CLIMBER
+    SUPER_ADMIN("S-A"), ADMIN("A"), CLIMBER("C");
+    private String code;
+
+    Role (String code){
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
 }

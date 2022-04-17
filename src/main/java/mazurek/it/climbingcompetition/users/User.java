@@ -29,13 +29,10 @@ public class User {
     private String mail;
     @JsonIgnore//ten atrybut nie będzie wyświetlany w JSONie
     private String password;
-    @Enumerated(EnumType.STRING)
-    private Role role;
     @OneToOne
     private Address address;
-    //    @Enumerated(EnumType.STRING)
+    private Role role = Role.CLIMBER;
     private Gender gender;
-    @Enumerated(EnumType.STRING)
     private Wall wall;
 
 
