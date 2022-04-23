@@ -1,14 +1,22 @@
 package mazurek.it.climbingcompetition.walls;
 
-public enum Wall {
-    BLOK_LINE("BL"), KARMA("KA"), UNITED("UN");
-    private String code;
+import lombok.Data;
 
-    Wall(String code) {
-        this.code = code;
-    }
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
-    public String getCode() {
-        return code;
-    }
+@Entity
+@Data
+public class Wall {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    @NotBlank(message = "Wall name is required")
+    private String name;
+
+//    private Address address;
+
+
 }
