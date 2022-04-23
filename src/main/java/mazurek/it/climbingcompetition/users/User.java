@@ -1,16 +1,12 @@
 package mazurek.it.climbingcompetition.users;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mazurek.it.climbingcompetition.addresses.Address;
-import mazurek.it.climbingcompetition.gender.Gender;
-import mazurek.it.climbingcompetition.roles.Role;
-import mazurek.it.climbingcompetition.walls.Wall;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity // These tells Hibernate to make a table out of this class
 @Data
@@ -19,21 +15,38 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
+    @NotBlank(message = "last name is required")
     private String name;
+
+    @Column(nullable = false)
+    @NotBlank(message = "last name is required")
     private String lastName;
-    @NonNull
+
+    @Column(nullable = false)
     private String phone;
-    @NonNull
+
+    @Column(nullable = false, unique = true)
+    @Email
+    @NotBlank(message = "email is required")
     private String mail;
-    @JsonIgnore//ten atrybut nie będzie wyświetlany w JSONie
+
+    @Column(nullable = false)
     private String password;
-    @OneToOne
-    private Address address;
-    private Role role = Role.CLIMBER;
-    private Gender gender;
-    private Wall wall;
+
+//    @OneToOne
+//    @JoinColumn(name = "address_id")
+//    private Address address;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "role_id")
+//    private Role role;
+//    //    @Enumerated(EnumType.STRING)
+//    private Gender gender;
+////    private List<Wall> wall;
 
 
 }

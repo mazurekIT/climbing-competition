@@ -21,14 +21,15 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public User createUser(@RequestBody User user) {
+    public User addUser(@RequestBody User user) {
         return userRepository.save(user);
     }
 
     @PostMapping("/users")
-    public Iterable<User> createListUsers(@RequestBody Iterable<User> users) {
+    public Iterable<User> addListUsers(@RequestBody Iterable<User> users) {
         return userRepository.saveAll(users);
     }
 
 
 }
+
