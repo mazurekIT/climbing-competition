@@ -8,12 +8,15 @@ import javax.persistence.*;
 @Data
 public class Address {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String city;
+
     @Column(nullable = false)
     private String street;
+
     @Column(nullable = false)
     private String number;
 }

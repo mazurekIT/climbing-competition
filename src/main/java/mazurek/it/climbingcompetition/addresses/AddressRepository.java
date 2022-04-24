@@ -1,8 +1,8 @@
 package mazurek.it.climbingcompetition.addresses;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@RepositoryRestResource
-public interface AddressRepository extends JpaRepository<Address,Long> {
+@RepositoryRestResource(collectionResourceRel = "address", path = "address")
+public interface AddressRepository extends CrudRepository<Address, Long> {
 }
