@@ -3,7 +3,6 @@ package mazurek.it.climbingcompetition.walls;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mazurek.it.climbingcompetition.addresses.Address;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -20,6 +19,7 @@ public class Wall {
 
     @Column(nullable = false)
     @NotBlank(message = "Wall - name is required")
+    @Valid
     private String name;
 
 //    @Valid

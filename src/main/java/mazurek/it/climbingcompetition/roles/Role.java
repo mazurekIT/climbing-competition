@@ -1,14 +1,16 @@
 package mazurek.it.climbingcompetition.roles;
 
-public enum Role {
-    SUPER_ADMIN("S-ADM"), ADMIN("ADM"), CLIMBER("CLM");
-    private String code;
+import lombok.Data;
 
-    Role (String code){
-        this.code = code;
-    }
+import javax.persistence.*;
 
-    public String getCode() {
-        return code;
-    }
+@Entity
+@Data
+public class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable = false)
+    private String name;
+
 }
