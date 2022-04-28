@@ -24,6 +24,6 @@ public class Wall {
     private String name;
 
 //    @Valid
-    private Address address;
+//    private Address address;
 
 }

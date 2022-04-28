@@ -2,14 +2,13 @@ package mazurek.it.climbingcompetition.walls;
 
 import org.springframework.stereotype.Service;
 
-import javax.validation.Validator;
 import java.util.List;
 
 @Service
 public class WallService {
     private final WallRepository wallRepository;
 
-    public WallService( WallRepository wallRepository) {
+    public WallService(WallRepository wallRepository) {
         this.wallRepository = wallRepository;
     }
 
