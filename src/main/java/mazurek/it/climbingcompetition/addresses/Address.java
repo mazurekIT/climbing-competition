@@ -3,6 +3,7 @@ package mazurek.it.climbingcompetition.addresses;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Data
@@ -11,12 +12,12 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @NotBlank(message = "City can't be blank")
     private String city;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Street can't be blank")
     private String street;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Number can't be blank")
     private String number;
 }
