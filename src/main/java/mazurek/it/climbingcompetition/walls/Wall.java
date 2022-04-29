@@ -3,10 +3,8 @@ package mazurek.it.climbingcompetition.walls;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mazurek.it.climbingcompetition.addresses.Address;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -18,7 +16,7 @@ public class Wall {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     @NotBlank(message = "Wall - name is required")
 //    @Valid
     private String name;
