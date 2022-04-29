@@ -12,12 +12,12 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "City can't be blank")
+    @NotBlank(message = "Address - City can't be blank.")
     private String city;
 
-    @NotBlank(message = "Street can't be blank")
+    @NotBlank(message = "Address - Street can't be blank.")
     private String street;
 
-    @NotBlank(message = "Number can't be blank")
+    @NotBlank(message = "Address - Number can't be blank.")
     private String number;
 }

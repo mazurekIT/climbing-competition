@@ -6,6 +6,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import javax.validation.ConstraintViolationException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,9 +23,18 @@ public class BasicController {
         });
         return errors;
     }
+
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
-    public String handleUnUniqueField(SQLIntegrityConstraintViolationException ex ){
+    public String handleSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException ex) {
         return ex.getMessage();
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(ConstraintViolationException.class)
+    public String handleConstraintViolationException(ConstraintViolationException ex) {
+        StringBuilder sb = new StringBuilder();
+        ex.getConstraintViolations().forEach(e -> sb.append(e.getMessage()).append(" "));
+        return sb.toString();
     }
 }
