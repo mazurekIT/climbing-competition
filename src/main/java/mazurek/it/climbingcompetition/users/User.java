@@ -8,7 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-@Entity // These tells Hibernate to make a table out of this class
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,11 +19,11 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
-    @NotBlank(message = "last name is required")
+    @NotBlank(message = "User - last name is required.")
     private String name;
 
     @Column(nullable = false)
-    @NotBlank(message = "last name is required")
+    @NotBlank(message = "User - last name is required.")
     private String lastName;
 
     @Column(nullable = false)
@@ -31,7 +31,7 @@ public class User {
 
     @Column(nullable = false, unique = true)
     @Email
-    @NotBlank(message = "email is required")
+    @NotBlank(message = "User - email is required.")
     private String mail;
 
     @Column(nullable = false)
