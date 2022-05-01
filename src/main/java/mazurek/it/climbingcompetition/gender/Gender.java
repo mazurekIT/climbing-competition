@@ -1,15 +1,12 @@
 package mazurek.it.climbingcompetition.gender;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum Gender {
     MALE("K"), FEMALE("M"), OTHER("X"), JUNIOR("J");
-    private String code;
 
-    Gender(String code) {
-        this.code = code;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
+    private final String code;
 }

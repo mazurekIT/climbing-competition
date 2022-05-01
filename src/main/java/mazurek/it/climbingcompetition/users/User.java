@@ -3,10 +3,12 @@ package mazurek.it.climbingcompetition.users;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mazurek.it.climbingcompetition.gender.Gender;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -35,18 +37,19 @@ public class User {
     private String mail;
 
     @Column(nullable = false)
+    @NotBlank
     private String password;
 
-//    @OneToOne
+    //    @OneToOne
 //    @JoinColumn(name = "address_id")
 //    private Address address;
 //
 //    @ManyToOne
 //    @JoinColumn(name = "role_id")
 //    private Role role;
-//    //    @Enumerated(EnumType.STRING)
-//    private Gender gender;
 ////    private List<Wall> wall;
 
+    @NotNull
+    private Gender gender;
 
 }
