@@ -7,8 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -55,10 +53,19 @@ class AddressTest {
 
 
     @Test
-    public void allFieldsAllBlank(){
+    public void allFieldsAllBlank() {
         Address address = new Address();
         Set<ConstraintViolation<Address>> constraintViolations = validator.validate(address);
         assertEquals(3, constraintViolations.size());
     }
 
+    @Test
+    public void addressIsValid() {
+        Address address = new Address();
+        address.setNumber("2");
+        address.setStreet("Street");
+        address.setCity("Poz");
+        Set<ConstraintViolation<Address>> constraintViolations = validator.validate(address);
+        assertEquals(0, constraintViolations.size());
+    }
 }
