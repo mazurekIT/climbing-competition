@@ -2,10 +2,7 @@ package mazurek.it.climbingcompetition.addresses;
 
 import mazurek.it.climbingcompetition.BasicController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -25,7 +22,12 @@ public class AddressController extends BasicController {
     }
 
     @GetMapping("/address")
-    public List<Address> getAll(){
+    public List<Address> getAll() {
         return addressService.findAll();
+    }
+
+    @GetMapping("/address/{id}")
+    public Address getById(@PathVariable Long id) {
+        return addressService.findById(id);
     }
 }

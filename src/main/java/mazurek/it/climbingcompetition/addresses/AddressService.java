@@ -1,5 +1,6 @@
 package mazurek.it.climbingcompetition.addresses;
 
+import mazurek.it.climbingcompetition.exceptions.AddressNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,9 @@ public class AddressService {
 
     public List<Address> findAll() {
         return (List<Address>) addressRepository.findAll();
+    }
+
+    public Address findById(Long id) {
+        return addressRepository.findById(id).orElseThrow(() -> new AddressNotFoundException(id));
     }
 }
