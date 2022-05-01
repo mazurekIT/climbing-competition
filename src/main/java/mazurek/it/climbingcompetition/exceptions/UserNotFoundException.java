@@ -1,4 +1,4 @@
-package mazurek.it.climbingcompetition.users;
+package mazurek.it.climbingcompetition.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(Long id) {
