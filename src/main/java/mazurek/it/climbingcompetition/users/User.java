@@ -3,12 +3,17 @@ package mazurek.it.climbingcompetition.users;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import mazurek.it.climbingcompetition.addresses.Address;
 import mazurek.it.climbingcompetition.gender.Gender;
+import mazurek.it.climbingcompetition.roles.Role;
+import mazurek.it.climbingcompetition.walls.Wall;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -28,7 +33,7 @@ public class User {
     @NotBlank(message = "User - last name is required.")
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String phone;
 
     @Column(nullable = false, unique = true)
@@ -40,14 +45,14 @@ public class User {
     @NotBlank
     private String password;
 
-    //    @OneToOne
-//    @JoinColumn(name = "address_id")
-//    private Address address;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "role_id")
-//    private Role role;
-////    private List<Wall> wall;
+    @OneToOne
+    private Address address;
+
+    @ManyToOne
+    private Role role;
+
+    @ManyToMany(mappedBy = "user")
+    private List<Wall> wall = new ArrayList<>();
 
     @NotNull
     private Gender gender;

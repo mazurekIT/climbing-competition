@@ -2,9 +2,12 @@ package mazurek.it.climbingcompetition.walls;
 
 import lombok.Data;
 import mazurek.it.climbingcompetition.addresses.Address;
+import mazurek.it.climbingcompetition.users.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,7 +23,9 @@ public class Wall {
 
     //    @Valid
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
+
+    @ManyToMany
+    private List<User> user = new ArrayList<>();
 
 }
