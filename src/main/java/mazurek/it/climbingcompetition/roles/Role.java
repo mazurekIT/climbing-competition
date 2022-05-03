@@ -20,6 +20,6 @@ public class Role {
     private String name;
 
 
-    @OneToMany
+    @OneToMany(mappedBy = "role")
     private List<User> user = new ArrayList<>();
 }

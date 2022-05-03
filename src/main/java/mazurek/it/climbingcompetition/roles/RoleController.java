@@ -20,12 +20,17 @@ public class RoleController extends BasicController {
     }
 
     @GetMapping("/role")
-    public List<Role> getAll(){
+    public List<Role> getAll() {
         return roleService.findAll();
     }
 
     @PostMapping("/role")
-    public Role addRole(@Valid @RequestBody Role role){
+    public Role addRole(@Valid @RequestBody Role role) {
         return roleService.addRole(role);
+    }
+
+    @PostMapping("/roles")
+    public List<Role> addListOfRoles(@Valid @RequestBody List<Role> roles) {
+        return roleService.addListOfRole(roles);
     }
 }

@@ -20,11 +20,11 @@ public class UserService {
     }
 
     public List<User> addListOfUsers(List<User> users) {
-        return userRepository.saveAll(users);
+        return (List<User>) userRepository.saveAll(users);
     }
 
     public List<User> findAll() {
-        return userRepository.findAll();
+        return (List<User>) userRepository.findAll();
     }
 
     public User findUserById(Long id) {

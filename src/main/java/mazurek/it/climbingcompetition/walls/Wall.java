@@ -18,10 +18,8 @@ public class Wall {
 
     @Column(nullable = false, unique = true)
     @NotBlank(message = "Wall - name is required.")
-    //    @Valid
     private String name;
 
-    //    @Valid
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 

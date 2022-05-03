@@ -2,6 +2,7 @@ package mazurek.it.climbingcompetition.users;
 
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,12 +24,12 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public User addUser(@RequestBody User user) {
+    public User addUser(@Valid @RequestBody User user) {
         return userService.addUser(user);
     }
 
     @PostMapping("/users")
-    public Iterable<User> addListUsers(@RequestBody List<User> users) {
+    public Iterable<User> addListUsers(@Valid @RequestBody List<User> users) {
         return userService.addListOfUsers(users);
     }
 
