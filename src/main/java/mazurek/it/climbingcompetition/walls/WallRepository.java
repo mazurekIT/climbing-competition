@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "wall", path = "wall")
+@RepositoryRestResource
 public interface WallRepository extends CrudRepository<Wall, Long> {
     List<Wall> findByName(String name);
 }
