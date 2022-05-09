@@ -1,5 +1,6 @@
 package mazurek.it.climbingcompetition.roles;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import mazurek.it.climbingcompetition.users.User;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Entity
 @Data
+@JsonIgnoreProperties(value = {"user"})
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
