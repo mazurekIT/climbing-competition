@@ -1,5 +1,6 @@
 package mazurek.it.climbingcompetition.walls;
 
+import mazurek.it.climbingcompetition.exceptions.WallNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,5 +25,7 @@ public class WallService {
         return wallRepository.findByName(name);
     }
 
-
+    public Wall findById(Long id) {
+        return wallRepository.findById(id).orElseThrow(() -> new WallNotFoundException(id));
+    }
 }
