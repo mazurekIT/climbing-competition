@@ -1,6 +1,7 @@
-package mazurek.it.climbingcompetition.controller;
+package mazurek.it.climbingcompetition.controller.rest;
 
 import lombok.RequiredArgsConstructor;
+import mazurek.it.climbingcompetition.controller.BasicController;
 import mazurek.it.climbingcompetition.model.Wall;
 import mazurek.it.climbingcompetition.service.WallService;
 import org.springframework.http.HttpStatus;

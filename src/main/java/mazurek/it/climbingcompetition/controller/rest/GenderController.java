@@ -1,4 +1,4 @@
-package mazurek.it.climbingcompetition.controller;
+package mazurek.it.climbingcompetition.controller.rest;
 
 import lombok.RequiredArgsConstructor;
 import mazurek.it.climbingcompetition.model.enums.Gender;
