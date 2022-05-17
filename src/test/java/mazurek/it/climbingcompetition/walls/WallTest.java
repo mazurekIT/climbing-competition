@@ -1,6 +1,7 @@
 package mazurek.it.climbingcompetition.walls;
 
-import mazurek.it.climbingcompetition.addresses.Address;
+import mazurek.it.climbingcompetition.model.Address;
+import mazurek.it.climbingcompetition.model.Wall;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

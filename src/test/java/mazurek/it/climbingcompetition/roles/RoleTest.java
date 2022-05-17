@@ -1,5 +1,6 @@
 package mazurek.it.climbingcompetition.roles;
 
+import mazurek.it.climbingcompetition.model.Role;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
