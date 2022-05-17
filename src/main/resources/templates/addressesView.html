@@ -1,0 +1,12 @@
+<html lang="pl">
+<head>
+    <title>Addresses List</title>
+</head>
+<body>
+<h1>Addresses List:</h1>
+<ul>
+    <li th:each="address : ${addresses}" th:text="${address.city}"> </li>
+</ul>
+
+</body>
+</html>
