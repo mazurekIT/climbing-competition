@@ -1,4 +1,6 @@
-package mazurek.it.climbingcompetition.gender;
+package mazurek.it.climbingcompetition.converter;
+
+import mazurek.it.climbingcompetition.model.enums.Gender;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

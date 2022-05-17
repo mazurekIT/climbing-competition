@@ -1,6 +1,8 @@
-package mazurek.it.climbingcompetition.addresses;
+package mazurek.it.climbingcompetition.service;
 
+import mazurek.it.climbingcompetition.repository.AddressRepository;
 import mazurek.it.climbingcompetition.exceptions.AddressNotFoundException;
+import mazurek.it.climbingcompetition.model.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,5 +1,6 @@
-package mazurek.it.climbingcompetition.walls;
+package mazurek.it.climbingcompetition.repository;
 
+import mazurek.it.climbingcompetition.model.Wall;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

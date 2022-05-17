@@ -1,6 +1,8 @@
-package mazurek.it.climbingcompetition.walls;
+package mazurek.it.climbingcompetition.service;
 
 import mazurek.it.climbingcompetition.exceptions.WallNotFoundException;
+import mazurek.it.climbingcompetition.model.Wall;
+import mazurek.it.climbingcompetition.repository.WallRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,12 +1,9 @@
-package mazurek.it.climbingcompetition.users;
+package mazurek.it.climbingcompetition.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mazurek.it.climbingcompetition.addresses.Address;
-import mazurek.it.climbingcompetition.gender.Gender;
-import mazurek.it.climbingcompetition.roles.Role;
-import mazurek.it.climbingcompetition.walls.Wall;
+import mazurek.it.climbingcompetition.model.enums.Gender;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

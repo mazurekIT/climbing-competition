@@ -1,4 +1,4 @@
-package mazurek.it.climbingcompetition;
+package mazurek.it.climbingcompetition.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;

@@ -1,7 +1,8 @@
-package mazurek.it.climbingcompetition.users;
+package mazurek.it.climbingcompetition.controller;
 
 import lombok.RequiredArgsConstructor;
-import mazurek.it.climbingcompetition.BasicController;
+import mazurek.it.climbingcompetition.model.User;
+import mazurek.it.climbingcompetition.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

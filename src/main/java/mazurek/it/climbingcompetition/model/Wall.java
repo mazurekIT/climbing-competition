@@ -1,8 +1,9 @@
-package mazurek.it.climbingcompetition.roles;
+package mazurek.it.climbingcompetition.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import mazurek.it.climbingcompetition.users.User;
+import mazurek.it.climbingcompetition.model.Address;
+import mazurek.it.climbingcompetition.model.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -12,16 +13,19 @@ import java.util.List;
 @Entity
 @Data
 @JsonIgnoreProperties(value = {"user"})
-public class Role {
+public class Wall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(nullable = false, unique = true)
-    @NotBlank(message = "Role - name is required.")
+    @NotBlank(message = "Wall - name is required.")
     private String name;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 
-    @OneToMany(mappedBy = "role")
+    @ManyToMany
     private List<User> user = new ArrayList<>();
+
 }

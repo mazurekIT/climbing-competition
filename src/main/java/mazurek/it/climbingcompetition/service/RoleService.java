@@ -1,5 +1,7 @@
-package mazurek.it.climbingcompetition.roles;
+package mazurek.it.climbingcompetition.service;
 
+import mazurek.it.climbingcompetition.model.Role;
+import mazurek.it.climbingcompetition.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,8 @@
-package mazurek.it.climbingcompetition.roles;
+package mazurek.it.climbingcompetition.controller;
 
 import lombok.RequiredArgsConstructor;
-import mazurek.it.climbingcompetition.BasicController;
+import mazurek.it.climbingcompetition.model.Role;
+import mazurek.it.climbingcompetition.service.RoleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

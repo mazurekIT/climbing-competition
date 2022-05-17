@@ -1,4 +1,4 @@
-package mazurek.it.climbingcompetition.addresses;
+package mazurek.it.climbingcompetition.model;
 
 import lombok.Data;
 
