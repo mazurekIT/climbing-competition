@@ -1,6 +1,8 @@
 package mazurek.it.climbingcompetition.service;
 
 import lombok.RequiredArgsConstructor;
+import mazurek.it.climbingcompetition.exceptions.MailDuplicationException;
+import mazurek.it.climbingcompetition.exceptions.PhoneDuplicatedException;
 import mazurek.it.climbingcompetition.exceptions.UserNotFoundException;
 import mazurek.it.climbingcompetition.model.User;
 import mazurek.it.climbingcompetition.repository.UserRepository;
@@ -14,7 +16,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     public List<User> findAll() {
-        return (List<User>) userRepository.findAll();
+        return userRepository.findAll();
     }
 
     public User findUserById(Long id) {
@@ -22,10 +24,9 @@ public class UserService {
     }
 
     public User addUser(User user) {
+        if (userRepository.findUserByMail(user.getMail()).isPresent()) throw new MailDuplicationException();
+        if (userRepository.findUserByPhone(user.getPhone()).isPresent()) throw new PhoneDuplicatedException();
         return userRepository.save(user);
     }
 
-    public List<User> addListOfUsers(List<User> users) {
-        return (List<User>) userRepository.saveAll(users);
-    }
 }
