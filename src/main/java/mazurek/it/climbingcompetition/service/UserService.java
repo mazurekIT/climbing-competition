@@ -24,8 +24,12 @@ public class UserService {
     }
 
     public User addUser(User user) {
-        if (userRepository.findUserByMail(user.getMail()).isPresent()) throw new MailDuplicationException();
-        if (userRepository.findUserByPhone(user.getPhone()).isPresent()) throw new PhoneDuplicatedException();
+        userRepository.findUserByMail(user.getMail()).ifPresent(u -> {
+            throw new MailDuplicationException();
+        });
+        userRepository.findUserByPhone(user.getPhone()).ifPresent(u -> {
+            throw new PhoneDuplicatedException();
+        });
         return userRepository.save(user);
     }
 
