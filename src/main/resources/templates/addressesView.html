@@ -1,12 +1,19 @@
-<html lang="pl">
+<html xmlns:th="https://www.thymeleaf.org" lang="pl">
 <head>
     <title>Addresses List</title>
+    <link rel="stylesheet" href="/main.css"/>
+
 </head>
 <body>
 <h1>Addresses List:</h1>
 <ul>
-    <li th:each="address : ${addresses}" th:text="${address.city}"> </li>
+    <li th:each="address : ${addresses}"
+        th:text="${address.city} + ' - ' + ${address.street} + ' ' + ${address.number}">
+    </li>
 </ul>
+<button>
+    <a href="http://localhost:8080/view/v1/addresses/add">Add Address</a>
+</button>
 
 </body>
 </html>

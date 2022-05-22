@@ -1,5 +1,12 @@
 * {
-    color: blue;
-    font-size: larger;
+    font-size: 25px;
     font-style: italic;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+a {
+    text-decoration-line: none;
 }
