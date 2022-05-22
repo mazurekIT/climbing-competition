@@ -1,30 +1,23 @@
 package mazurek.it.climbingcompetition.service;
 
+import mazurek.it.climbingcompetition.exceptions.RoleDuplicationException;
 import mazurek.it.climbingcompetition.model.Role;
 import mazurek.it.climbingcompetition.repository.RoleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RoleService {
-    private final RoleRepository roleRepository;
+public record RoleService(RoleRepository roleRepository) {
 
-    @Autowired
-    public RoleService(RoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
+    public List<Role> findAll() {
+        return roleRepository.findAll();
     }
 
     public Role addRole(Role role) {
+        roleRepository.findRoleByName(role.getName()).ifPresent(r -> {
+            throw new RoleDuplicationException();
+        });
         return roleRepository.save(role);
-    }
-
-    public List<Role> addListOfRole(List<Role> roles) {
-        return (List<Role>) roleRepository.saveAll(roles);
-    }
-
-    public List<Role> findAll() {
-        return (List<Role>) roleRepository.findAll();
     }
 }
