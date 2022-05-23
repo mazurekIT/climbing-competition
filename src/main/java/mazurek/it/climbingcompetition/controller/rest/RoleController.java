@@ -1,7 +1,6 @@
 package mazurek.it.climbingcompetition.controller.rest;
 
 import lombok.RequiredArgsConstructor;
-import mazurek.it.climbingcompetition.controller.BasicController;
 import mazurek.it.climbingcompetition.model.Role;
 import mazurek.it.climbingcompetition.service.RoleService;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/roles")
 @RequiredArgsConstructor
-public class RoleController extends BasicController {
+public class RoleController {
     private final RoleService roleService;
 
     @GetMapping

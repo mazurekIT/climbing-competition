@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class AddressAdvice {
+public class AddressAdvice extends BasicAdvice {
 
     @ResponseBody
     @ExceptionHandler(AddressNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String addressNotFoundHandler(AddressNotFoundException ex){
+    public String addressNotFoundHandler(AddressNotFoundException ex) {
         return ex.getMessage();
     }
 }

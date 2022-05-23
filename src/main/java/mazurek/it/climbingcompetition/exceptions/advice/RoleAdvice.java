@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class RoleAdvice {
+public class RoleAdvice extends BasicAdvice {
     @ResponseBody
     @ExceptionHandler(RoleDuplicationException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
-    public String roleNameIsDuplicatedHandler(RoleDuplicationException ex){
+    public String roleNameIsDuplicatedHandler(RoleDuplicationException ex) {
         return ex.getMessage();
     }
 }

@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import mazurek.it.climbingcompetition.model.enums.Gender;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +29,7 @@ public class User {
     private String lastName;
 
     @Column(nullable = false, unique = true)
+//    @Digits(message = "User - phone should contain only digits") //TODO this annotation works for number type
     private String phone;
 
     @Column(nullable = false, unique = true)
@@ -39,6 +38,7 @@ public class User {
     private String mail;
 
     @Column(nullable = false)
+    @Size(min = 5, message = "User - password should be min 5 long.")
     @NotBlank
     private String password;
 

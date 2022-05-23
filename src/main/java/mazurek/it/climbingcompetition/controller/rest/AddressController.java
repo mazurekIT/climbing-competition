@@ -1,7 +1,6 @@
 package mazurek.it.climbingcompetition.controller.rest;
 
 import lombok.RequiredArgsConstructor;
-import mazurek.it.climbingcompetition.controller.BasicController;
 import mazurek.it.climbingcompetition.model.Address;
 import mazurek.it.climbingcompetition.service.AddressService;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/addresses")
 @RequiredArgsConstructor
-public class AddressController extends BasicController {
+public class AddressController {
     private final AddressService addressService;
 
 

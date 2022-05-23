@@ -1,7 +1,6 @@
 package mazurek.it.climbingcompetition.controller.rest;
 
 import lombok.RequiredArgsConstructor;
-import mazurek.it.climbingcompetition.controller.BasicController;
 import mazurek.it.climbingcompetition.model.Wall;
 import mazurek.it.climbingcompetition.service.WallService;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/walls")
 @RequiredArgsConstructor
-public class WallController extends BasicController {
+public class WallController {
     private final WallService wallService;
 
     @GetMapping
