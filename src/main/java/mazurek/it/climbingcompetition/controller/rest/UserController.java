@@ -1,6 +1,7 @@
 package mazurek.it.climbingcompetition.controller.rest;
 
 import lombok.RequiredArgsConstructor;
+import mazurek.it.climbingcompetition.dto.UserDTO;
 import mazurek.it.climbingcompetition.model.User;
 import mazurek.it.climbingcompetition.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public List<User> getUsers() {
+    public List<UserDTO> getUsers() {
         return userService.findAll();
     }
 

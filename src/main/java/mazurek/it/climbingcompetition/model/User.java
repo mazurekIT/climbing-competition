@@ -6,9 +6,13 @@ import lombok.NoArgsConstructor;
 import mazurek.it.climbingcompetition.model.enums.Gender;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Data
@@ -54,4 +58,11 @@ public class User {
     @NotNull
     private Gender gender;
 
+    public String getFullName() {
+        return getName() + " " + getLastName();
+    }
+
+    public List<String> getWallNames() {
+        return getWall().stream().map(Wall::getName).collect(Collectors.toList());
+    }
 }
